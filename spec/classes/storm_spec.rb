@@ -128,23 +128,23 @@ describe 'storm' do
             }
           end
 
-          describe "storm class with Graphite enabled" do 
-            let(:params) {{ 
-              :graphite_enable          => true, 
+          desceibe "storm class with Graphite enabled" do
+            let(:params) {{
+              :graphite_enable          => true,
               :graphite_consumer        => 'backtype.storm.metric.GraphiteMetricsConsumer',
-              :graphite_hostname        => 'cde-graphite.cde.vrsn.com', 
-              :graphite_package_ensure  => 'present', 
-              :graphite_package_name    => 'storm-graphite', 
-              :graphite_port            => '2003', 
-              :graphite_prefix          => 'storm' 
-            }} 
+              :graphite_hostname        => 'cde-graphite.cde.vrsn.com',
+              :graphite_package_ensure  => 'present',
+              :graphite_package_name    =>  'storm-graphite',
+              :graphite_port            => '2003',
+              :graphite_port            => 'storm'
+            }}
 
-            it { should contain_package('storm-graphite').with_ensure('present')} 
+            it { should contain_package('storm-graphite').with_ensure('present')}
             it { should contain_file(default_configuration_file).
-                    with_content(/^topology\.metrics\.consumer\.register:\n  - class: "backtype\.storm\.metric\.GraphiteMetricsConsumer"$/).
-               with_content(/^metrics\.graphite\.host: "cde-graphite\.cde\.vrsn\.com"$/). 
-            with_content(/^metrics\.graphite\.port: "2003"$/). 
-            with_content(/^metrics\.graphite\.prefix: "storm"$/) 
+                    with_content(/^topology\.metrics\.consumer\.register:\n  - class: "backtype\.storm\.metric\.GraphiteMetricsConsumer"$/)
+                    with_content(/^metrics\.graphite\.host: "cde-graphite\.cde\.vrsn\.com"$/).
+                    with_content(/^metrics\.graphite\.port: "2003"$/).
+                    with_content(/^metrics\.graphite\.prefix: "storm"$/)
             }
           end
 
