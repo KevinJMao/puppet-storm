@@ -141,7 +141,7 @@ describe 'storm' do
 
             it { should contain_package('storm-graphite').with_ensure('present')}
             it { should contain_file(default_configuration_file).
-                    with_content(/^topology\.metrics\.consumer\.register:\n  - class: "backtype\.storm\.metric\.GraphiteMetricsConsumer"$/)
+                    with_content(/^topology\.metrics\.consumer\.register:\n  - class: "backtype\.storm\.metric\.GraphiteMetricsConsumer"$/).
                     with_content(/^metrics\.graphite\.host: "cde-graphite\.cde\.vrsn\.com"$/).
                     with_content(/^metrics\.graphite\.port: "2003"$/).
                     with_content(/^metrics\.graphite\.prefix: "storm"$/)
