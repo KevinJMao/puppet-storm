@@ -128,7 +128,7 @@ describe 'storm' do
             }
           end
 
-          desceibe "storm class with Graphite enabled" do
+          describe "storm class with Graphite enabled" do
             let(:params) {{
               :graphite_enable          => true,
               :graphite_consumer        => 'backtype.storm.metric.GraphiteMetricsConsumer',
