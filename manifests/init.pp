@@ -16,6 +16,13 @@ class storm(
   $drpc_childopts          = $storm::params::drpc_childopts,
   $drpc_servers            = $storm::params::drpc_servers,
   $gid                     = $storm::params::gid,
+  $graphite_enable         = $storm::params::graphite_enable,
+  $graphite_consumer       = $storm::params::graphite_consumer,
+  $graphite_hostname       = $storm::params::graphite_hostname,
+  $graphite_package_ensure = $storm::params::graphite_package_ensure,
+  $graphite_package_name   = $storm::params::graphite_package_name,
+  $graphite_port           = $storm::params::graphite_port,
+  $graphite_prefix         = $storm::params::graphite_prefix,
   $group                   = $storm::params::group,
   $group_ensure            = $storm::params::group_ensure,
   $local_dir               = $storm::params::local_dir,
@@ -66,6 +73,12 @@ class storm(
   validate_string($drpc_childopts)
   validate_array($drpc_servers)
   if !is_integer($gid) { fail('The $gid parameter must be an integer number') }
+  validate_bool($graphite_enable)
+  validate_string($graphite_consumer)
+  validate_string($graphite_hostname)
+  validate_string($graphite_package_ensure)
+  validate_string($graphite_package_name)
+  validate_string($graphite_port)
   validate_string($group)
   validate_string($group_ensure)
   validate_absolute_path($local_dir)

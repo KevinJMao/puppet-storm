@@ -7,6 +7,13 @@ class storm::install inherits storm {
     name    => $package_name,
   }
 
+  if $graphite_enable == true {
+    package { 'storm-graphite':
+      ensure  => $graphite_package_ensure,
+      name    => $graphite_package_name,
+    }
+  }
+
   # This exec ensures we create intermediate directories for $local_dir as required
   exec { 'create-storm-local-directory':
     command => "mkdir -p ${local_dir}",

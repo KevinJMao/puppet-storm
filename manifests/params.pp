@@ -8,6 +8,13 @@ class storm::params {
   $drpc_childopts          = '-Xmx256m -Djava.net.preferIPv4Stack=true'
   $drpc_servers            = []
   $gid                     = 53001
+  $graphite_enable         = false
+  $graphite_consumer       = 'com.verisign.ie.monitoring.GraphiteMetricsConsumer'
+  $graphite_hostname       = 'cde-graphite.cde.vrsn.com'
+  $graphite_package_ensure = 'present'
+  $graphite_package_name   = 'graphite_storm'
+  $graphite_port           = '2003'
+  $graphite_prefix         = 'storm'
   $group                   = 'storm'
   $group_ensure            = 'present'
   $local_dir               = '/app/storm'
