@@ -43,6 +43,16 @@ supervisor.slots.ports:
 #
 storm.messaging.transport: "<%= @storm_messaging_transport %>"
 
+<% if @graphite_enable == true %>
+#Metrics Consumers
+topology.metrics.consumer.register:
+  - class: "<%= @graphite_consumer %>"
+    parallelism.hint: 1
+metrics.graphite.host: "<%= @graphite_hostname %>"
+metrics.graphite.port: "<%= @graphite_port %>"
+metrics.graphite.prefix: "<%= @graphite_prefix %>"
+<% end %>
+
 <%=
   require 'yaml'
   @config_map.to_yaml.lines.
