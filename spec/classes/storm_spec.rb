@@ -136,7 +136,7 @@ describe 'storm' do
               :graphite_package_ensure  => 'present',
               :graphite_package_name    =>  'storm-graphite',
               :graphite_port            => '2003',
-              :graphite_port            => 'storm'
+              :graphite_port            => 'storm',
             }}
 
             it { should contain_package('storm-graphite').with_ensure('present')}
